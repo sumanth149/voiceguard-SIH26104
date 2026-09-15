@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>VoiceGuard | AI Voice Security</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<div class="grid-bg"></div><div class="orb orb1"></div><div class="orb orb2"></div>
+<div class="shell">
+<aside class="sidebar">
+  <div class="brand"><div class="brand-mark">V</div><div><b>VOICEGUARD</b><small>AI VOICE SECURITY</small></div></div>
+  <div class="section-label">SECURITY CONSOLE</div>
+  <button class="nav active" data-page="live">◉ <span>Live Protection</span><em>LIVE</em></button>
+  <button class="nav" data-page="history">◷ <span>Call History</span></button>
+  <button class="nav" data-page="verification">✓ <span>Verification Center</span></button>
+  <div class="section-label">INTELLIGENCE</div>
+  <button class="nav" data-page="insights">◈ <span>Voice Intelligence</span></button>
+  <button class="nav" data-page="privacy">⌁ <span>Privacy Shield</span></button>
+  <button class="nav" data-page="model">◆ <span>AI Model Status</span></button>
+  <div class="side-status"><i></i><div><b>Protection Active</b><small>SIH26104 • Local Prototype</small></div></div>
+</aside>
+
+<main>
+<header class="topbar">
+ <div><div class="eyebrow"><i></i> SIH26104 &nbsp;•&nbsp; BLOCKCHAIN & CYBERSECURITY</div><h1 id="pageTitle">Real-Time Voice Impersonation Detection</h1></div>
+ <div class="top-right"><span class="online">● DETECTOR ONLINE</span><button id="callBtn" class="call-btn" onclick="startCall()">☎ Start Protected Call</button></div>
+</header>
+
+<section id="page-live" class="page active">
+ <div class="call-banner" id="callBanner">
+   <div class="avatar">M</div><div class="caller"><small>PROTECTED CALL</small><b>Manager / Registered Caller</b><span id="callerMeta">Waiting for incoming communication</span></div>
+   <div class="banner-state"><span id="callState">READY</span><small id="timer">00:00</small></div>
+   <button class="end-btn" id="endBtn" onclick="endCall()" disabled>End Call</button>
+ </div>
+
+ <div class="hero-grid">
+  <section class="panel risk-panel">
+   <div class="panel-head"><div><small>LIVE IMPERSONATION RISK</small><h2><span id="score">0</span><sup>/100</sup></h2></div><span id="badge" class="badge low">LOW RISK</span></div>
+   <div class="riskbar-wrap">
+    <div class="risk-leds" id="riskLeds">
+      <span class="risk-led" data-p="10"><b>10%</b></span><span class="risk-led" data-p="20"><b>20%</b></span><span class="risk-led" data-p="30"><b>30%</b></span><span class="risk-led" data-p="40"><b>40%</b></span><span class="risk-led" data-p="50"><b>50%</b></span><span class="risk-led" data-p="60"><b>60%</b></span><span class="risk-led" data-p="70"><b>70%</b></span><span class="risk-led" data-p="80"><b>80%</b></span><span class="risk-led" data-p="90"><b>90%</b></span><span class="risk-led" data-p="100"><b>100%</b></span>
+    </div>
+    <div class="riskbar"><div id="riskFill"></div><span id="riskDot"></span></div>
+  </div>
+   <div class="risk-numbers"><span>0</span><span>20</span><span>40</span><span>60</span><span>80</span><span>100</span></div>
+   <div class="risk-zones"><span>SAFE</span><span>WATCH</span><span>CAUTION</span><span>HIGH</span><span>CRITICAL</span></div>
+   <div class="mini-grid"><div><small>Identity Match</small><b id="identity">—</b></div><div><small>Deepfake Probability</small><b id="deepfake">—</b></div><div><small>Signal Integrity</small><b id="integrity">—</b></div><div><small>Latency</small><b id="latency">—</b></div></div>
+   <div class="verdict" id="verdict">Waiting for protected voice analysis</div>
+   <div class="risk-hint"><strong id="bandName">SAFE</strong><span id="riskHint">Hint: start a protected call. VoiceGuard will continuously monitor the voice stream.</span></div>
+  </section>
+  <section class="panel voice-panel">
+   <div class="panel-head"><div><small>VOICE IDENTITY ENGINE</small><h3 id="voiceTitle">No active analysis</h3></div><span class="secure">🔒 SECURED</span></div>
+   <div class="voice-row"><div class="voice-ring"><div>MV</div></div><div><b id="voiceName">Manager / Registered Caller</b><span id="voiceNumber">Trusted profile •••• 2770</span></div><div class="match-score"><b id="matchBig">—</b><small>identity match</small></div></div>
+   <div id="wave" class="wave"></div>
+   <div class="voice-meta"><span>● <b id="streamStatus">Standby</b></span><span id="micStatus">🎙 Microphone: not connected</span><span id="audioQuality">Audio quality: —</span><span id="codec">Codec: monitoring</span></div>
+  </section>
+ </div>
+
+ <div class="dashboard-grid">
+  <section class="panel pipeline-panel"><div class="panel-head"><div><small>AI ANALYSIS PIPELINE</small><h3>Continuous voice intelligence</h3></div><span class="live-chip">STREAMING</span></div>
+   <div class="pipeline">
+    <div class="stage active" id="s1"><strong>01</strong><b>Capture</b><small>Live audio</small></div><i></i><div class="stage" id="s2"><strong>02</strong><b>Clean</b><small>Noise / codec</small></div><i></i><div class="stage" id="s3"><strong>03</strong><b>Voice AI</b><small>Identity + spoof</small></div><i></i><div class="stage" id="s4"><strong>04</strong><b>Risk Engine</b><small>0–100 decision</small></div><i></i><div class="stage" id="s5"><strong>05</strong><b>Protection</b><small>Allow / Verify</small></div>
+   </div>
+   <div class="explain"><span>AI explanation</span><b id="explainText">Start a protected call to see why the system makes its decision.</b></div>
+  </section>
+  <section class="panel event-panel"><div class="panel-head"><div><small>THREAT TIMELINE</small><h3>Security events</h3></div><button class="link-btn" onclick="clearEvents()">Clear</button></div><div id="events" class="events"><div class="empty">No security events yet.</div></div></section>
+ </div>
+
+ <div class="protection-grid">
+  <section class="panel transaction-panel"><div class="panel-head"><div><small>RISK-BASED ACTION CONTROL</small><h3>Sensitive action guard</h3></div><span class="shield">🛡</span></div>
+   <div class="tx"><div class="tx-icon">₹</div><div><small>DETECTED REQUEST</small><b>₹10,00,000 transfer</b><span>High-value financial operation</span></div><strong id="txState">LOCKED</strong></div>
+   <p id="txStatus">Sensitive actions remain protected until voice risk is assessed.</p>
+   <button id="authorizeBtn" class="action-btn" onclick="requestVerification()" disabled>Verify Before Authorization →</button>
+  </section>
+  <section class="panel insight-panel"><div class="panel-head"><div><small>CALL INTELLIGENCE</small><h3>What VoiceGuard sees</h3></div><span class="ai-chip">AI</span></div>
+   <div class="insight-row"><span>Speaker profile</span><b id="profileState">Not analyzed</b></div><div class="insight-row"><span>Speech authenticity</span><b id="authState">Not analyzed</b></div><div class="insight-row"><span>Conversation risk</span><b id="riskState">Not analyzed</b></div><div class="insight-row"><span>Recommended action</span><b id="actionState">Awaiting call</b></div>
+  </section>
+ </div>
+ <div class="threat-card"><div><span class="threat-kicker">LIVE SECURITY DECISION</span><b id="threatTitle" class="safeText">NO ACTIVE THREAT</b><p id="threatText">VoiceGuard is monitoring the live call continuously.</p></div><div class="threat-icon">◉</div></div>
+ <div class="demo-actions"><button class="test-btn" onclick="runAIAnalysis()">🧠 ANALYZE LIVE VOICE</button><button class="test-btn secondary" onclick="showAnalysisDetails()">▣ OPEN AI ANALYSIS</button><span>Automatic detection • no human/AI selection</span></div><div class="demo-note">Risk bands are demonstration thresholds. Production deployment should use validated AASIST/RawNet2 + speaker-embedding models and measured thresholds.</div>
+</section>
+
+<section id="page-history" class="page"><section class="panel full"><div class="panel-head"><div><small>MONITORING</small><h2>Call History</h2></div><button class="link-btn" onclick="clearHistory()">Clear</button></div><div class="stats"><div><small>Sessions</small><b id="histTotal">0</b></div><div><small>High Risk</small><b id="histHigh">0</b></div><div><small>Verified</small><b id="histVerified">0</b></div><div><small>Protected</small><b>100%</b></div></div><div id="historyList" class="history-list"><div class="empty">No sessions yet.</div></div></section></section>
+
+<section id="page-verification" class="page"><section class="panel full"><div class="panel-head"><div><small>ZERO-TRUST CONTROL</small><h2>Verification Center</h2></div><span class="secure">INDEPENDENT CHANNEL</span></div><p class="lead">A suspicious voice never gets the final say. VoiceGuard can require an independent factor before a sensitive action is authorized.</p><div class="verify-cards"><button onclick="openVerify('OTP')">🔢<b>OTP</b><small>Registered number</small></button><button onclick="openVerify('MFA')">🛡<b>MFA</b><small>Two factors</small></button><button onclick="openVerify('Trusted Callback')">📞<b>Trusted Callback</b><small>Known channel</small></button><button onclick="openVerify('Challenge–Response')">🧩<b>Challenge–Response</b><small>Fresh challenge</small></button></div><div class="registered">Registered verification channel: <b>******2770</b></div></section></section>
+
+<section id="page-insights" class="page"><section class="panel full"><div class="panel-head"><div><small>AI EXPLAINABILITY</small><h2>Voice Intelligence</h2><p class="subhead">Automatic multi-signal analysis — the operator does not choose human or AI.</p></div><span class="ai-chip">AI ENGINE ONLINE</span></div><div class="ai-console"><div class="ai-status"><span class="pulse"></span><b id="aiStatus">Waiting for live voice</b><small id="aiStatusDetail">Start a protected call to begin continuous analysis.</small></div><div class="ai-metrics"><div><small>IDENTITY MATCH</small><b id="insIdentity">—</b><span>Speaker profile similarity</span></div><div><small>SYNTHETIC PROBABILITY</small><b id="insDeepfake">—</b><span>Generated/manipulated speech likelihood</span></div><div><small>SIGNAL INTEGRITY</small><b id="insIntegrity">—</b><span>Audio quality & consistency</span></div><div><small>OVERALL RISK</small><b id="insRisk">—</b><span>0–100 security decision</span></div></div><div class="analysis-list"><div><span>01</span><b>Acoustic pattern analysis</b><em id="a1">Waiting</em></div><div><span>02</span><b>Spectro-temporal artifact scan</b><em id="a2">Waiting</em></div><div><span>03</span><b>Speaker embedding comparison</b><em id="a3">Waiting</em></div><div><span>04</span><b>Deepfake likelihood fusion</b><em id="a4">Waiting</em></div><div><span>05</span><b>Risk-based protection decision</b><em id="a5">Waiting</em></div></div><div class="ai-result" id="aiResult">AI analysis results will appear here after voice capture.</div></div></section></section>
+
+<section id="page-privacy" class="page"><section class="panel full"><div class="panel-head"><div><small>DATA PROTECTION</small><h2>Privacy Shield</h2></div><span class="secure">PRIVACY-FIRST</span></div><div class="privacy-grid"><div><b>Minimal Retention</b><span>Raw conversation audio is not required to be permanently stored.</span></div><div><b>Feature-Level Logging</b><span>Security events can be logged as scores and metadata instead of recordings.</span></div><div><b>Edge Processing</b><span>Inference can be moved closer to the device to reduce data exposure.</span></div><div><b>Independent Verification</b><span>High-risk decisions use a separate trusted channel.</span></div></div></section></section>
+
+<section id="page-model" class="page"><section class="panel full"><div class="panel-head"><div><small>AI INFRASTRUCTURE</small><h2>AI Model Status</h2></div><span class="online">● ONLINE</span></div><div class="model-list"><div><span>AASIST Anti-Spoofing</span><b>READY FOR VALIDATED INFERENCE</b></div><div><span>RawNet2 Anti-Spoofing</span><b>READY FOR VALIDATED INFERENCE</b></div><div><span>Speaker Embedding Engine</span><b>PROTOTYPE PROFILE MATCH</b></div><div><span>Risk Engine</span><b>ACTIVE</b></div><div><span>Privacy Layer</span><b>ACTIVE</b></div></div><div class="warning-box">This prototype demonstrates the complete security workflow. Production deployment requires trained/validated models, representative telephony data and measured false-positive/false-negative performance.</div></section></section>
+</main></div>
+
+<div id="modal" class="modal"><div class="modalbox"><button class="close" onclick="closeVerify()">×</button><div class="modal-icon" id="mIcon">🔐</div><small>INDEPENDENT VERIFICATION</small><h2 id="mTitle">Verify identity</h2><p id="mDesc"></p><div id="mBody"></div><button class="confirm" onclick="completeVerify()">Confirm Verification →</button></div></div>
+<div id="toast" class="toast"></div>
+<script src="/static/app.js"></script>
+</body></html>
